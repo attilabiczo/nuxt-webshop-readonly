@@ -39,7 +39,7 @@
               </div>
             </div>
             <NuxtLink to="/cart">
-              <button class="flex items-center h-[100%] px-2 bg-custom-orange dark:bg-custom-dark-background group-hover:bg-custom-secondary-orange dark:group-hover:bg-custom-dark-background text-[#FFFFFF] dark:text-custom-orange dark:group-hover:text-custom-secondary-orange uppercase">
+              <button class="flex items-center h-[100%] rounded-r-md px-2 bg-custom-orange dark:bg-custom-dark-background group-hover:bg-custom-secondary-orange dark:group-hover:bg-custom-dark-background text-[#FFFFFF] dark:text-custom-orange dark:group-hover:text-custom-secondary-orange uppercase">
                 Checkout
               </button>
             </NuxtLink>

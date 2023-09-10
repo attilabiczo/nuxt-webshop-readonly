@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="text-3xl mt-12 text-center sm:text-left">
+    <div class="text-3xl my-12 text-center sm:text-left">
       Are you interested in the sourcecode of this webshop?
       <div class="flex flex-col sm:flex-row items-center pl-6 pt-6 text-custom-blue hover:text-custom-secondary-blue dark:text-custom-orange dark:hover:text-custom-secondary-orange">
         <Icon name="mdi:file-code-outline" size="48"/>
