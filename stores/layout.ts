@@ -1,0 +1,23 @@
+import { defineStore } from 'pinia'
+
+export const useLayoutStore = defineStore('layout', () => {
+    const isMenuOverlay = ref<boolean>(false)
+
+    const isMenuOpen = computed(() => {
+        return isMenuOverlay.value === true
+    })
+
+    function openMenu() {
+        isMenuOverlay.value = true
+    }
+
+    function closeMenu() {
+        isMenuOverlay.value = false
+    }
+
+    return {
+        isMenuOpen,
+        openMenu,
+        closeMenu
+    }
+})
