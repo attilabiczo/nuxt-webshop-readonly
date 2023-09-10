@@ -27,19 +27,19 @@
         <MainLogo />
 
         <div class="flex items-center">
-          <div v-if="cartStore.cartLength > 0" class="flex border border-custom-orange rounded-md h-1/2 sm:h-[100%]">
+          <div v-if="cartStore.cartLength > 0" class="group flex border border-custom-orange rounded-md h-1/2 sm:h-[100%] hover:cursor-pointer">
             <div class="flex items-center p-1 px-2">
-              <div class="relative cursor-pointer" @mouseenter="isCartHover = true" @mouseleave="isCartHover = false">
+              <div class="relative">
                 <span class="absolute flex items-center justify-center -right-[3px] top-0 bg-custom-orange h-[20px] min-w-[17px] text-sm text-[#FFFFFF] p-1 rounded-full border border-custom-blue">
                     {{ cartStore.cartLength }}
                 </span>
                 <div class="min-w-[40px]">
-                  <Icon name="ph:shopping-cart-simple" size="33" class="text-custom-blue dark:text-custom-orange" :class="[isCartHover ? 'text-custom-secondary-blue dark:text-custom-secondary-orange' : '']" />
+                  <Icon name="ph:shopping-cart-simple" size="33" class="text-custom-blue dark:text-custom-orange group-hover:text-custom-secondary-blue dark:group-hover:text-custom-secondary-orange" />
                 </div>
               </div>
             </div>
             <NuxtLink to="/cart">
-              <button class="flex items-center h-[100%] px-2 bg-custom-orange dark:bg-custom-dark-background hover:bg-custom-secondary-orange text-[#FFFFFF] dark:text-custom-orange dark:hover:text-custom-secondary-orange uppercase">
+              <button class="flex items-center h-[100%] px-2 bg-custom-orange dark:bg-custom-dark-background group-hover:bg-custom-secondary-orange dark:group-hover:bg-custom-dark-background text-[#FFFFFF] dark:text-custom-orange dark:group-hover:text-custom-secondary-orange uppercase">
                 Checkout
               </button>
             </NuxtLink>
@@ -67,5 +67,4 @@
   const cartStore = useCartStore()
 
   const colorMode = useColorMode()
-  const isCartHover = ref(false)
 </script>
