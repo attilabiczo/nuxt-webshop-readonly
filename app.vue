@@ -12,19 +12,18 @@ import { useProductStore } from "~/stores/product"
 const layoutStore = useLayoutStore()
 const productStore = useProductStore()
 
-let windowWidth = ref(process.client ? window.innerWidth : '')
+const { $productService } = useNuxtApp()
+
+let windowWidth = ref(process.client ? window.innerWidth : 0)
 
 watch(() => windowWidth.value, () => {
-  if (windowWidth.value >= 767) {
+  if (windowWidth.value >= 640) {
     layoutStore.closeMenu()
   }
 })
 
 onBeforeMount(async () => {
-  productStore.fetchProducts(async () => {
-    const response = await fetch('https://63c10327716562671870f959.mockapi.io/products')
-    return await response.json()
-  })
+  productStore.fetchProducts(async () => $productService.getProducts())
 })
 
 onMounted(() => {

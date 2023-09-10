@@ -13,7 +13,7 @@
       <div class="flex items-center">
         <div><SelectedAmountController :product="productItem" class="hidden sm:visible sm:flex mt-2" /></div>
         <div class="text-md w-[71px] text-right mt-2">${{ (cartItem?.amount * cartItem?.price).toFixed(1) }}</div>
-        <button @click="cartStore.removeFromCart(cartItem)"  class="rounded p-2 ml-4 mt-2 disabled:bg-[#cccccc] bg-custom-orange hover:bg-custom-dark-orange text-[#FFFFFF] text-xs uppercase ml-0">
+        <button @click="cartStore.removeFromCart(cartItem)"  class="rounded p-2 ml-4 mt-2 disabled:bg-[#cccccc] bg-custom-orange hover:bg-custom-secondary-orange text-[#FFFFFF] text-xs uppercase ml-0">
           <Icon name="mdi:delete-forever" size="20"/>
         </button>
       </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { CartItemType } from "~/types";
+  import type { CartItemType, ProductType } from "~/types";
   import { useProductStore } from "~/stores/product";
   import { useCartStore } from "~/stores/cart";
 
@@ -35,5 +35,5 @@
 
   const cartStore = useCartStore()
   const productStore = useProductStore()
-  const productItem = computed(() => productStore.getProduct(cartItem.value.id))
+  const productItem = computed(() => productStore.getProduct(cartItem.value.id) as ProductType)
 </script>

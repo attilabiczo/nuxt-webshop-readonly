@@ -3,7 +3,8 @@
     <Breadcrumb />
     <h1 class="text-3xl mb-6">Cart</h1>
     <div v-if="cartStore.isCartEmpty">
-      Cart is empty
+      Cart is empty, check the products 
+      <NuxtLink to="/products" class="underline cursor-pointer font-bold py-1.5">here.</NuxtLink>
     </div>
     <div v-else class="flex flex-col">
       <CartItem class="flex-[1_1_100%] max-w-[100%]"

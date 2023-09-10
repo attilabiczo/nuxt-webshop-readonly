@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   pages: true,
+  runtimeConfig: {
+    public: {
+      apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+    }
+  },
   modules: [
     'nuxt-icon',
     '@pinia/nuxt',
@@ -9,6 +14,5 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     classSuffix: ''
-  },
-  devtools: { enabled: true }
+  }
 })
