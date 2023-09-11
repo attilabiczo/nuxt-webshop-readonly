@@ -15,14 +15,20 @@
         <span class="text-custom-secondary-orange font-semibold">${{ product.price }}</span>
       </div>
       <div class="flex justify-center my-2">
-        <SelectedAmountController :product="product" />
+        <SelectedAmountController :product="product" 
+          :is-in-cart="cartStore.isInCart(product.id)" 
+          @on-add-to-cart="onAddToCart"
+          @on-decrease-amount="onDecreaseAmount"
+          @on-increase-amount="onIncreaseAmount" />
       </div>
       <div class="absolute top-0 left-0 z-60 text-xs w-full">
-        <div v-if="product.minOrderAmount > 1" class="flex items-center justify-center p-2 w-full text-[#FFFFFF] bg-[#d11100] opacity-70 dark:opacity-80">
+        <div v-if="product.minOrderAmount > 1" 
+          class="flex items-center justify-center p-2 w-full text-[#FFFFFF] bg-[#d11100] opacity-70 dark:opacity-80">
           Minimum {{ product.minOrderAmount }} pcs
         </div>
-        <div v-if="cartStore.isInCart(product.id)" class="flex items-center justify-between p-2 w-full text-[#FFFFFF] bg-[#8ab537] opacity-70 dark:opacity-80">
-          <div class="text-center">{{ cartItem.amount }} pcs for ${{ (cartItem.amount * cartItem.price).toFixed(1) }} in your card</div>
+        <div v-if="cartStore.isInCart(product.id)" 
+          class="flex items-center justify-between p-2 w-full text-[#FFFFFF] bg-[#8ab537] opacity-70 dark:opacity-80">
+          <div class="text-center">{{ cartItem.amount }} pcs for ${{ calculatedPrice }} in your cart</div>
           <button @click="cartStore.removeFromCart(cartItem)">
             <Icon name="mdi:delete-forever" size="20" class="text-[#FFFFFF] hover:text-custom-secondary-orange cursor-pointer" />
           </button>
@@ -44,5 +50,12 @@
   const { product } = toRefs(props)
 
   const cartStore = useCartStore()
+
   const cartItem = computed(() => cartStore.getCartItem(product.value.id) as CartItemType)
+
+  const calculatedPrice = computed(() => (cartItem.value.amount * cartItem.value.price).toFixed(1))
+
+  const onAddToCart = (productObj: ProductType) => cartStore.addToCart(productObj)
+  const onIncreaseAmount = (id: string) => cartStore.increaseAmount(id)
+  const onDecreaseAmount = (id: string) => cartStore.decreaseAmount(id)
 </script>

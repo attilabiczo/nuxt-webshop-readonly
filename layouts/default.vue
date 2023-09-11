@@ -27,7 +27,7 @@
         <MainLogo />
 
         <div class="flex items-center">
-          <div v-if="cartStore.cartLength > 0" class="group flex border border-custom-orange rounded-md h-1/2 sm:h-[100%] hover:cursor-pointer">
+          <div v-if="!cartStore.isCartEmpty" class="group flex border border-custom-orange rounded-md h-1/2 sm:h-[100%] hover:cursor-pointer">
             <div class="flex items-center p-1 px-2">
               <div class="relative">
                 <span class="absolute flex items-center justify-center -right-[3px] top-0 bg-custom-orange h-[20px] min-w-[17px] text-sm text-[#FFFFFF] p-1 rounded-full border border-custom-blue">
