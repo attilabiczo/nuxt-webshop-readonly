@@ -68,3 +68,13 @@
 
   const colorMode = useColorMode()
 </script>
+
+<style>
+  html {
+    background-color: #FFFFFF;
+  }
+
+  html.dark {
+    background-color: #2A2A2A;
+  }
+</style>
