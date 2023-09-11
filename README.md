@@ -1,63 +1,37 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Nuxt 3 Simple Webshop
 
 ## Setup
 
 Make sure to install the dependencies:
 
-```bash
-# npm
 npm install
 
-# pnpm
-pnpm install
+If there is any issue with the package installation, it is worth trying 
 
-# yarn
-yarn install
-```
+npm install --legacy-peer-deps
 
-## Development Server
+### Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server on http://localhost:3000:
 
-```bash
-# npm
 npm run dev
 
-# pnpm
-pnpm run dev
+### Running tests
 
-# yarn
-yarn dev
-```
+Run the vitest unit tests
 
-## Production
+There are example 
 
-Build the application for production:
+npm run test:unit
 
-```bash
-# npm
-npm run build
+## Main architecture
 
-# pnpm
-pnpm run build
+Using a readonly products service this app tries to simulate the main workflows of a simple webshop. 
 
-# yarn
-yarn build
-```
+Main features per page
 
-Locally preview production build:
+### Dashboard
 
-```bash
-# npm
-npm run preview
+### Products
 
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Cart
