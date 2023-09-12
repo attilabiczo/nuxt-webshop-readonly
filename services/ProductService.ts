@@ -12,6 +12,9 @@ export default class ProductService extends BaseService {
     const endpoint = this.baseUrl + this.endpointName
 
     const response = await fetch(endpoint)
+    if (!response.ok) {
+      throw new Error('Something went wrong');
+    }
 
     return await response.json();
   }

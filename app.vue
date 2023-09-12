@@ -12,8 +12,6 @@ import { useProductStore } from "~/stores/product"
 const layoutStore = useLayoutStore()
 const productStore = useProductStore()
 
-const { $productService } = useNuxtApp()
-
 let windowWidth = ref(process.client ? window.innerWidth : 0)
 
 watch(() => windowWidth.value, () => {
@@ -23,7 +21,7 @@ watch(() => windowWidth.value, () => {
 })
 
 onBeforeMount(async () => {
-  productStore.fetchProducts(async () => $productService.getProducts())
+  await productStore.fetchProducts()
 })
 
 onMounted(() => {
