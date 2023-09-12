@@ -29,12 +29,7 @@
         </li>
 
         <li class="flex justify-center py-3 text-custom-blue dark:text-custom-orange">
-          Theme
-          <select v-model="colorMode.preference" class="border border-custom-blue focused:outliner-[#FFFFFF] dark:border-custom-secondary-orange rounded-md ml-2 w-24 h-6 bg-custom-background dark:bg-custom-dark-background text-custom-blue dark:text-custom-orange">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
+          <ThemeSelector />
         </li>
 
       </ul>
@@ -48,8 +43,6 @@ import { useCartStore } from '~/stores/cart'
 
 const layoutStore = useLayoutStore()
 const cartStore = useCartStore()
-
-const colorMode = useColorMode()
 
 const goTo = (url: string) => {
   layoutStore.closeMenu()

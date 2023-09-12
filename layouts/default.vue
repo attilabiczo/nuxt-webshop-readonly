@@ -13,12 +13,7 @@
           </NuxtLink>
         </li>
         <li class="flex items-center border-l border-l-[#FFFFFF] dark:border-l-custom-secondary-orange text-[#FFFFFF] dark:text-custom-orange pl-4">
-          Theme
-          <select v-model="colorMode.preference" class="border border-[#FFFFFF] focused:outliner-[#FFFFFF] dark:border-custom-secondary-orange rounded-md ml-2 w-24 h-6 bg-custom-blue dark:bg-custom-dark-background text-[#FFFFFF] dark:text-custom-orange">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
+          <ThemeSelector />
         </li>
       </ul>
     </div>
@@ -65,8 +60,6 @@
 
   const layoutStore = useLayoutStore()
   const cartStore = useCartStore()
-
-  const colorMode = useColorMode()
 </script>
 
 <style>
