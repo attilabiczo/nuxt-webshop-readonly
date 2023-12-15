@@ -1,12 +1,10 @@
-# Nuxt 3 Simple Webshop
+# Simple Webshop
+
+The project was implemented using Nuxt 3 in Vite @node16
 
 ## Setup
 
 Make sure to install the dependencies:
-
-npm install
-
-If there is any issue with the package installation, it is worth trying 
 
 npm install --legacy-peer-deps
 
