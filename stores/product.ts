@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { ProductType } from "~/types";
+import placeholderProductImage from '~/assets/product-placeholder-image.jpg';
 
 export const useProductStore = defineStore('product', () => {
     const productList = ref<ProductType[]>([])
@@ -25,6 +26,12 @@ export const useProductStore = defineStore('product', () => {
             //await new Promise((res) => setTimeout(res, 3000))
 
             const resultProducts = await $productService.getProducts()
+            for (const resultProductsKey in resultProducts) {
+                let product = resultProducts[resultProductsKey]
+                if (product.img.indexOf('jpg') < 0) {
+                    product.img = placeholderProductImage;
+                }
+            }
             productList.value = [...resultProducts]
         }
         catch {
